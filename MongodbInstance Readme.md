@@ -13,7 +13,9 @@ System ULIMITS :
 --------------
 
   ulimit -a
+  
   ulimit  -n  21000
+  
   ulimit -u  192276
 
 
