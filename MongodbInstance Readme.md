@@ -20,7 +20,7 @@ System ULIMITS :
 
 You can check the status of THP support by issuing the command:
 --------------------------------------------------------------
-  Before update THP check this command :
+  
       cat  /sys/kernel/mm/transparent_hugepage/defrag
       [always] madvise never
       cat  /sys/kernel/mm/transparent_hugepage/enabled
