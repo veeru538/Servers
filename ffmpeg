@@ -1,0 +1,46 @@
+
+
+1. SSH into your instance and become root
+sudo su -
+
+2. Go to the the /usr/local/bin directory
+cd /usr/local/bin
+
+3. Inside the /usr/local/bin directory, create an "ffmpeg" directory
+mkdir ffmpeg
+
+4. Go into the new directory
+cd ffmpeg
+
+5. Go to static build directory at http://ffmpeg.gusari.org/static/64bit/ and pick the
+latest version of FFMPEG - as of this writing, it was ffmpeg.static.64bit.2014-02-16.tar.gz
+wget http://ffmpeg.gusari.org/static/64bit/ffmpeg.static.64bit.2014-03-02.tar.gz
+
+
+6. The file should now be in /usr/local/bin/ffmpeg. Untar it...
+tar -xzf ffmpeg.static.64bit.2014-03-02.tar.gz
+
+5. Run it and check what the latest version is
+./ffmpeg -version
+
+The output should look something like this
+ffmpeg version N-61041-g52a2138
+built on Mar  2 2014 05:45:04 with gcc 4.6 (Debian 4.6.3-1)
+configuration: --prefix=/root/ffmpeg-static/64bit --extra-cflags='-I/root/ffmpeg-static/64bit/include -static' --extra-ldflags='-L/root/ffmpeg-static/64bit/lib -static' --extra-libs='-lxml2 -lexpat -lfreetype' --enable-static --disable-shared --disable-ffserver --disable-doc --enable-bzlib --enable-zlib --enable-postproc --enable-runtime-cpudetect --enable-libx264 --enable-gpl --enable-libtheora --enable-libvorbis --enable-libmp3lame --enable-gray --enable-libass --enable-libfreetype --enable-libopenjpeg --enable-libspeex --enable-libvo-aacenc --enable-libvo-amrwbenc --enable-version3 --enable-libvpx
+libavutil      52. 66.100 / 52. 66.100
+libavcodec     55. 52.102 / 55. 52.102
+libavformat    55. 33.100 / 55. 33.100
+libavdevice    55. 10.100 / 55. 10.100
+libavfilter     4.  2.100 /  4.  2.100
+libswscale      2.  5.101 /  2.  5.101
+libswresample   0. 18.100 /  0. 18.100
+libpostproc    52.  3.100 / 52.  3.100
+
+
+6. If you want to be able to execute FFMPEG from any directory, simply create a symlink into /usr/bin like this:
+ln -s /usr/local/bin/ffmpeg/ffmpeg /usr/bin/ffmpeg
+
+The first part (/usr/local/bin/ffmpeg/ffmpeg) is where the file is located after I untarred
+the file. The second part (/usr/bin/ffmpeg) is where we want the symlink to go
+
+Now, you should be able to run the command "ffmpeg" from anywhere 
