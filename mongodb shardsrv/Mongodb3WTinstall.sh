@@ -18,9 +18,12 @@ chkconfig --add mongodb
 chkconfig mongodb on
 cd /opt
 
-wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.1.tgz
-tar zxf mongodb-linux-x86_64-3.0.1.tgz
-mv mongodb-linux-x86_64-3.0.1  mongodb
+#wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.1.tgz
+#tar zxf mongodb-linux-x86_64-3.0.1.tgz
+#mv mongodb-linux-x86_64-3.0.1  mongodb
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.0.1.tgz
+mongodb-linux-x86_64-amazon-3.0.1.tgz
+mv mongodb-linux-x86_64-amazon-3.0.1  mongodb
 useradd -M -r --home-dir /opt/mongodb mongodb
 
 cat <<EOF > /opt/mongodb/mykey
